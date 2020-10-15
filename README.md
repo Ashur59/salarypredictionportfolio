@@ -68,22 +68,17 @@ The model would have worked better if the data was not as sparse as it is (after
 
 ### The Features Utilized
 
-I used all features in the original "train" data except "jobId" and "companyId" as they were completely irrelevant after investigating the importance of features.
+I used all features in the original "train" data except "jobId" and "companyId" as they were completely irrelevant after investigating the importance of features. I added four more features into "train" data, i.e. three 2nd-degree polynomials and one 3r-degree polynomial. The reason I thought these four would be enough is that usually salary is dictated by three important features: "degree", "yearsExperience," and "jobType". So, I made products from these features to introduce new features.
 
 ### Training the Model
 
 Instead of implementing a simple _grid_ search over the parameters of each model, training and evaluating a regressor for each combination to assess how good the model is, and to avoid information _leaking,_ I split the data into three sets: the _training_ set to build the model, the _validation_ set to select the parameters of the model, and the _test_ set to evaluate the performance of the selected parameters. Specifically, I trained **_XGBRegressor_** algorithm on 80% of "train" data in order to score the 20% "validation" data. For a better estimate of the generalization performance, I used _cross-validation_ to evaluate the performance of each parameter combination using the **_GridSearchCV_** class which implements the methodology in the form of an estimator. Fitting the **_GridSearchCV_** object both searches for the best parameters, and automatically fits a new model on the whole training dataset with the parameters that yield the best _cross-validation_ performance. With the best hyper-parameters:
 
-* ```booster='gbtree'```
-* ```gamma=0```  
-* ```learning_rate=0.2```
-* ```max_depth=6```
-* ```n_estimators=100```
-* ```reg_alpha=0```
-* ```reg_lambda=1```
-* ```tree_method='exact'```,
+* ```learning_rate=0.1```
+* ```max_depth=4```
+* ```n_estimators=500```,
 
-I made sure that I am hitting the required _MSE_ for both _entry-level_ and _senior-level_ data science roles among all training dataset by training the same model over the entire "train" dataset; _entry-level_ required \<= 360 and _senior-leve_ required \<= 320. While it is not difficult to hit the required _accuracy_ on the 4 distinct subsets of "train" dataset, i.e. entry, junior, senior, and principal, it was challenging to get the same high _accuracy_ on the entire dataset all at once where "yearsExperience" feature is encoded into 4 _ordinal_ distinct values.
+I made sure that I am hitting the required _MSE_ for both _entry-level_ and _senior-level_ data science roles among all training dataset by training the same model over the entire "train" dataset; _entry-level_ required \<= 360 and _senior-leve_ required \<= 320. While it is not difficult to hit the required _accuracy_ on the 4 distinct subsets of "train" dataset, i.e. entry, junior, senior, and principal, it is challenging to get the same high _accuracy_ on the entire dataset all at once where "yearsExperience" feature is encoded into 4 _ordinal_ distinct values along with the added four new features, i.e. three 2nd-degree polynomials and one 3r-degree polynomial.
 
 ### Assessing the Accuracy of the Predictions
 
@@ -91,7 +86,7 @@ While for any _regression_ model, we have a plethora of evaluation metrics, e.g.
 
 ### Feature Importance
 
-In a descending order, "industry," "major," "jobType," "yearsExperience," and "degree" affected the salary predictions the most. "milesFromMetropolis" and "companyId" had the least impact on the salary prediction. I identified this by applying the ```feature_importances_``` method on the chosen machine learning algorithm after fitting on the final _feature-engineered_ and _combined_ "train" data. _partial dependence plots_, on the other hand, showed *_how_* each one of the features affected the salary predictions.
+Aside from engineered features, (i.e. _degree\_jobType_ ,  _yearsExperience\_jobType_ , _yearsExperience\_degree_ , and  _yearsExperience\_degree*jobType_ which are all added and seems to be important), the original features that affected the salary predictions the most are "industry," "jobType," "major," "yearsExperience," and "degree" in a descending order. "milesFromMetropolis" and "companyId" had the least impact on the salary prediction. I identified this by applying the ```feature_importances_``` method on the chosen machine learning algorithm after fitting on the final _feature-engineered_ and _combined_ "train" data. _partial dependence plots_, on the other hand, showed *_how_* each one of the features affected the salary predictions.
 
 ### Additional Works
 
