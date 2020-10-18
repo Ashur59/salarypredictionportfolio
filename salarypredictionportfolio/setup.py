@@ -4,7 +4,7 @@ setup(
     name='src',
     packages=find_packages(),
     version='0.1.0',
-    description='This is my portfolio project at DSDJ',
+    description='A short description of the project.',
     author='Ashoordin Ashoormaram',
     license='MIT',
 )
