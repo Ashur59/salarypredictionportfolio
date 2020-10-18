@@ -88,22 +88,22 @@ While for any _regression_ model, we have a plethora of evaluation metrics, e.g.
 
 Aside from engineered features, (i.e. _degree\_jobType_ ,  _yearsExperience\_jobType_ , _yearsExperience\_degree_ , and  _yearsExperience\_degree*jobType_ which are all added and seems to be important), the original features that affected the salary predictions the most are "industry," "jobType," "major," "yearsExperience," and "degree" in a descending order. "milesFromMetropolis" and "companyId" had the least impact on the salary prediction. I identified this by applying the ```feature_importances_``` method on the chosen machine learning algorithm after fitting on the final _feature-engineered_ and _combined_ "train" data. _partial dependence plots_, on the other hand, showed *_how_* each one of the features affected the salary predictions.
 
-![Alt Text](/images/Feature_Importances)
+![GitHub Logo](/images/Feature_Importances)
 
 ### Additional Works
 
 For the training dataset, I made visualizations of salary distribution in the form of _boxplots_ (using **_Seaborn_** python package) marginalized over any one of the features. I also plotted the correlation matrix among _numerical_ and _ordinal_ categorical features in order to find any mutual correlation between any two of such features to justify the previously used and engineered features. At last, I included the _partial dependence plots_ from both **scikit-learn** and **python**.
 
-![Alt Text](/images/Correlatin_degree_salary)
-![Alt Text](/images/Correlatin_jobType_salary)
-![Alt Text](/images/Correlatin_industry_salary)
-![Alt Text](/images/Correlatin_major_salary)
-![Alt Text](/images/Correlatin_milesFromMetropolis_salary)
-![Alt Text](/images/Correlatin_yearsExperience_salary)
+![GitHub Logo](/images/Correlatin_degree_salary)
+![GitHub Logo](/images/Correlatin_jobType_salary)
+![GitHub Logo](/images/Correlatin_industry_salary)
+![GitHub Logo](/images/Correlatin_major_salary)
+![GitHub Logo](/images/Correlatin_milesFromMetropolis_salary)
+![GitHub Logo](/images/Correlatin_yearsExperience_salary)
 
-![Alt Text](/images/Heatmap\/of\/Correlation\/Matrix)
+![GitHub Logo](/images/Heatmap\/of\/Correlation\/Matrix)
 
-![Alt Text](/images/pdp_jobType)
-![Alt Text](/images/pdp_degree)
-![Alt Text](/images/pdp_milesFromMetropolis)
-![Alt Text](/images/pdp_yearsExperience)
+![GitHub Logo](/images/pdp_jobType)
+![GitHub Logo](/images/pdp_degree)
+![GitHub Logo](/images/pdp_milesFromMetropolis)
+![GitHub Logo](/images/pdp_yearsExperience)
