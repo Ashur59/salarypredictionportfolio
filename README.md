@@ -1,6 +1,15 @@
 
 # Salary Prediction Project (Python)
 
+```bash
+C:.
+├───data
+├───helper_functions
+│   └───__pycache__
+├───images
+└───__pycache__
+```
+
 ## Assignment Description
 
 Examining a set of job postings with salaries and then predict salaries for a new set of job postings.
@@ -88,22 +97,22 @@ While for any _regression_ model, we have a plethora of evaluation metrics, e.g.
 
 Aside from engineered features, (i.e. _degree\_jobType_ ,  _yearsExperience\_jobType_ , _yearsExperience\_degree_ , and  _yearsExperience\_degree*jobType_ which are all added and seems to be important), the original features that affected the salary predictions the most are "industry," "jobType," "major," "yearsExperience," and "degree" in a descending order. "milesFromMetropolis" and "companyId" had the least impact on the salary prediction. I identified this by applying the ```feature_importances_``` method on the chosen machine learning algorithm after fitting on the final _feature-engineered_ and _combined_ "train" data. _partial dependence plots_, on the other hand, showed *_how_* each one of the features affected the salary predictions.
 
-![GitHub Logo](/images/Feature_Importances.png)
+![Feature Importance](/images/Feature_Importances.png)
 
 ### Additional Works
 
 For the training dataset, I made visualizations of salary distribution in the form of _boxplots_ (using **_Seaborn_** python package) marginalized over any one of the features. I also plotted the correlation matrix among _numerical_ and _ordinal_ categorical features in order to find any mutual correlation between any two of such features to justify the previously used and engineered features. At last, I included the _partial dependence plots_ from both **scikit-learn** and **python**.
 
-![GitHub Logo](/images/Correlation_degree_salary.png)
-![GitHub Logo](/images/Correlation_jobType_salary.png)
-![GitHub Logo](/images/Correlation_industry_salary.png)
-![GitHub Logo](/images/Correlation_major_salary.png)
-![GitHub Logo](/images/Correlation_milesFromMetropolis_salary.png)
-![GitHub Logo](/images/Correlation_yearsExperience_salary.png)
+![degree_salary_correlation](/images/Correlation_degree_salary.png)
+![jobType_salary_correlation](/images/Correlation_jobType_salary.png)
+![industry_salary_correlation](/images/Correlation_industry_salary.png)
+![major_salary_correlation](/images/Correlation_major_salary.png)
+![milesFromMetropolis_salary_correlation](/images/Correlation_milesFromMetropolis_salary.png)
+![yearsExperience_salary_correlation](/images/Correlation_yearsExperience_salary.png)
 
-![GitHub Logo](/images/Heatmap\/of\/Correlation\/Matrix.png)
+![Correlation Matrix](/images/Heatmap\/of\/Correlation\/Matrix.png)
 
-![GitHub Logo](/images/pdp_jobType.png)
-![GitHub Logo](/images/pdp_degree.png)
-![GitHub Logo](/images/pdp_milesFromMetropolis.png)
-![GitHub Logo](/images/pdp_yearsExperience.png)
+![predictability of jobType](/images/pdp_jobType.png)
+![predictability of degree](/images/pdp_degree.png)
+![predictability of milesFromMetropolis](/images/pdp_milesFromMetropolis.png)
+![predictability of yearsExperience](/images/pdp_yearsExperience.png)
